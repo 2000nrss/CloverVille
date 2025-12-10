@@ -312,7 +312,7 @@ main {
 
 /* Responsiveness for home page */
 
-@@media (max-width: 768px) {
+@media (max-width: 768px) {
   .footer {
     flex-direction: column;
     text-align: center;
@@ -542,11 +542,21 @@ main {
 /* progress bar */
 
 .progress-bar {
+  position: relative;
   height: 14px;
   border-radius: 999px;
   background: #e5e7eb;
   overflow: hidden;
   margin-top: 0.2rem;
+}
+
+.segment-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: white;
+  opacity: 0.9;
 }
 
 .progress-fill {
