@@ -310,9 +310,14 @@ main {
   object-fit: cover;
 }
 
-/* Responsive tweaks for home page */
+/* Responsiveness for home page */
 
-@media (max-width: 768px) {
+@@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .hero-img {
     height: 260px;
   }
@@ -323,7 +328,42 @@ main {
 
   .activities-card,
   .activities-card-image-left {
-    grid-template-columns: 1fr; /* stack image and text */
+    grid-template-columns: 1fr;
+  }
+
+  .points-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* extra fixes only for very small screens */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.5rem 1rem 0.7rem;
+  }
+
+  .nav-links ul {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: flex-end;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .hero-content {
+    padding: 1.2rem 1.4rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    font-size: 0.9rem;
   }
 }
 
