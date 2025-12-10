@@ -12,7 +12,7 @@ fetch('json/greenPoints.json')
         const weekAgo = new Date(today);
         weekAgo.setDate(today.getDate() - 7);
 
-        const tbody = document.getElementById("data-from-json");
+        const tbody = document.getElementById("actions-table-body");
 
         data.forEach(item => {
             greenPointsTotal += item.points;
@@ -35,8 +35,8 @@ fetch('json/greenPoints.json')
         updateLastWeek(greenPointsLastWeek);
         updateNextReward(greenPointsTotal);
 
-        const weekNumberElem = document.getElementById('weekNumber');
-        const weekRangeElem = document.getElementById('weekRange');
+        const weekNumberElem = document.querySelector('.actions-title');
+        const weekRangeElem = document.querySelector(".actions-goal");
 
         const weekNumber = getWeekNumber(today);
         weekNumberElem.textContent = 'Week ' + weekNumber;
@@ -51,20 +51,26 @@ fetch('json/greenPoints.json')
 fetch('json/tasks.json')
     .then(response => response.json())
     .then(data => {
-        const taskGrid = document.getElementById("tasks-grid");
+        const taskGrid = document.querySelector(".tasks-grid")
 
         data.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "task";
-            div.innerHTML =
-                '<img src="taskSymbol.png" alt="Tasks symbol" class="task-icon">' +
-                '<p>' +
-                item.goodsToOffer + '<br>' +
-                'Owner: ' + item.fullName + '<br>' +
-                item.price + ' Points' +
-                '</p>';
-
-            taskGrid.appendChild(div);
+            const article = document.createElement("article");
+            article.className = "task-card";
+            article.innerHTML = `
+          <div class="task-icon-circle">
+            <img
+              src="images/tasks-symbol.png"
+              alt="Task icon"
+              class="task-icon"
+            />
+          </div>
+          <div class="task-body">
+            <h2 class="task-title">${item.goodsToOffer}</h2>
+            <p class="task-owner">Owner: ${item.fullName}</p>
+            <p class="task-points">${item.price} points</p>
+          </div>
+        `;
+            taskGrid.appendChild(article);
         })
 
 
@@ -75,16 +81,18 @@ fetch('json/tasks.json')
 function updateProgress(points) {
     const percent = Math.min(points / MAX_POINTS * 100, 100); // max 100 %
 
-    const fill = document.getElementById('progressFill');
-    const pointsText = document.getElementById('pointsText');
+    const fill = document.getElementById('points-progress');
+    const pointsText = document.querySelector('.summary-value');
+
+
 
     fill.style.width = percent + '%';
-    pointsText.textContent = 'Total Points: ' + points;
+    pointsText.textContent = points;
 }
 
 function updateLastWeek(points) {
-    const lastWeekInfo = document.getElementById("lastWeekInfo");
-    lastWeekInfo.textContent = 'Points last 7 days: ' + points;
+    const lastWeekInfo = document.querySelector(".actions-points");
+    lastWeekInfo.textContent = points + ' points';
 }
 
 function getWeekNumber(date) {
@@ -96,7 +104,7 @@ function getWeekNumber(date) {
 
     // Day of the year (1–366)
     const dayNumber = Math.floor(diff / oneDay) + 1;
-    return Math.ceil(dayNumber / 7);                  
+    return Math.ceil(dayNumber / 7);
 }
 
 
@@ -111,8 +119,8 @@ function formatDate(date) {
 }
 
 function updateNextReward(points) {
-    const nextRewardText = document.getElementById("nextReward");
-    const nextRewardInPercentages = document.getElementById("nextRewardInPercentages");
+    const nextRewardText = document.querySelector(".summary-goal");
+    const nextRewardInPercentages = document.querySelector(".summary-note");
 
     let targetPoints = 0;
 
