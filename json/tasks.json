@@ -1,0 +1,74 @@
+[
+  {
+    "fullName": "Mia Red",
+    "goodsToOffer": "Composting assistance for home garden",
+    "price": 30,
+    "date": "2025-03-01"
+  },
+  {
+    "fullName": "Bob Miller",
+    "goodsToOffer": "Window cleaning for apartment",
+    "price": 20,
+    "date": "2025-03-02"
+  },
+  {
+    "fullName": "Hetty Johnson",
+    "goodsToOffer": "Cooking class: three healthy vegetarian meals",
+    "price": 25,
+    "date": "2025-03-03"
+  },
+  {
+    "fullName": "Cornel Novak",
+    "goodsToOffer": "Guided meditation session (30 minutes)",
+    "price": 10,
+    "date": "2025-03-04"
+  },
+  {
+    "fullName": "Adam Woods",
+    "goodsToOffer": "Herb picking and identification walk",
+    "price": 40,
+    "date": "2025-03-05"
+  },
+  {
+    "fullName": "Dominik Klein",
+    "goodsToOffer": "Clothes mending and simple alterations",
+    "price": 20,
+    "date": "2025-03-06"
+  },
+  {
+    "fullName": "Laura Hill",
+    "goodsToOffer": "Bike repair and tune-up",
+    "price": 35,
+    "date": "2025-03-07"
+  },
+  {
+    "fullName": "Sofia Schmidt",
+    "goodsToOffer": "Language exchange: English–German conversation",
+    "price": 15,
+    "date": "2025-03-08"
+  },
+  {
+    "fullName": "Elias Novak",
+    "goodsToOffer": "Computer cleanup and basic tech support",
+    "price": 25,
+    "date": "2025-03-09"
+  },
+  {
+    "fullName": "Nina Petrova",
+    "goodsToOffer": "Homemade sourdough baking lesson",
+    "price": 30,
+    "date": "2025-03-10"
+  },
+  {
+    "fullName": "Liam O’Connor",
+    "goodsToOffer": "Dog walking for one evening",
+    "price": 12,
+    "date": "2025-03-11"
+  },
+  {
+    "fullName": "Hana Kovářová",
+    "goodsToOffer": "House plant care and repotting",
+    "price": 18,
+    "date": "2025-03-12"
+  }
+]

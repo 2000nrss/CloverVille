@@ -1,0 +1,182 @@
+[
+  {
+    "citizenId": "CZ0101",
+    "activity": "Recycled household plastic and paper",
+    "points": 40,
+    "dateOfActivity": "2025-12-01"
+  },
+  {
+    "citizenId": "CZ0102",
+    "activity": "Used bike instead of car to work",
+    "points": 31,
+    "dateOfActivity": "2025-12-02"
+  },
+  {
+    "citizenId": "CZ0103",
+    "activity": "Planted three new trees in community park",
+    "points": 59,
+    "dateOfActivity": "2025-12-03"
+  },
+  {
+    "citizenId": "CZ0104",
+    "activity": "Participated in neighborhood clean-up",
+    "points": 44,
+    "dateOfActivity": "2025-12-04"
+  },
+  {
+    "citizenId": "CZ0105",
+    "activity": "Installed LED lights at home",
+    "points": 34,
+    "dateOfActivity": "2025-12-05"
+  },
+  {
+    "citizenId": "CZ0106",
+    "activity": "Reduced water usage for one week",
+    "points": 25,
+    "dateOfActivity": "2025-12-06"
+  },
+  {
+    "citizenId": "CZ0107",
+    "activity": "Composted organic kitchen waste",
+    "points": 32,
+    "dateOfActivity": "2025-12-07"
+  },
+  {
+    "citizenId": "CZ0108",
+    "activity": "Volunteered at local eco-event",
+    "points": 54,
+    "dateOfActivity": "2025-12-08"
+  },
+  {
+    "citizenId": "CZ0109",
+    "activity": "Used public transport all week",
+    "points": 37,
+    "dateOfActivity": "2025-12-09"
+  },
+  {
+    "citizenId": "CZ0110",
+    "activity": "Organized office recycling program",
+    "points": 64,
+    "dateOfActivity": "2025-12-10"
+  },
+  {
+    "citizenId": "CZ0111",
+    "activity": "Installed home rainwater collection barrel",
+    "points": 69,
+    "dateOfActivity": "2025-12-11"
+  },
+  {
+    "citizenId": "CZ0112",
+    "activity": "Picked up litter during daily walk",
+    "points": 20,
+    "dateOfActivity": "2025-12-12"
+  },
+  {
+    "citizenId": "CZ0113",
+    "activity": "Hosted a zero-waste workshop",
+    "points": 74,
+    "dateOfActivity": "2025-12-13"
+  },
+  {
+    "citizenId": "CZ0114",
+    "activity": "Donated old electronics for recycling",
+    "points": 27,
+    "dateOfActivity": "2025-12-14"
+  },
+  {
+    "citizenId": "CZ0115",
+    "activity": "Switched to reusable shopping bags",
+    "points": 22,
+    "dateOfActivity": "2025-12-15"
+  },
+  {
+    "citizenId": "CZ0116",
+    "activity": "Used reusable water bottle all month",
+    "points": 30,
+    "dateOfActivity": "2025-12-16"
+  },
+  {
+    "citizenId": "CZ0117",
+    "activity": "Planted winter-friendly shrubs in garden",
+    "points": 44,
+    "dateOfActivity": "2025-12-17"
+  },
+  {
+    "citizenId": "CZ0118",
+    "activity": "Helped neighbor insulate their windows",
+    "points": 34,
+    "dateOfActivity": "2025-12-18"
+  },
+  {
+    "citizenId": "CZ0119",
+    "activity": "Attended environmental education workshop",
+    "points": 27,
+    "dateOfActivity": "2025-12-19"
+  },
+  {
+    "citizenId": "CZ0120",
+    "activity": "Avoided single-use plastics for a week",
+    "points": 42,
+    "dateOfActivity": "2025-12-20"
+  },
+  {
+    "citizenId": "CZ0121",
+    "activity": "Organized carpool to work",
+    "points": 49,
+    "dateOfActivity": "2025-12-21"
+  },
+  {
+    "citizenId": "CZ0122",
+    "activity": "Repaired clothes instead of buying new",
+    "points": 32,
+    "dateOfActivity": "2025-12-22"
+  },
+  {
+    "citizenId": "CZ0123",
+    "activity": "Donated items to reuse center",
+    "points": 37,
+    "dateOfActivity": "2025-12-23"
+  },
+  {
+    "citizenId": "CZ0124",
+    "activity": "Cooked only vegetarian meals for a week",
+    "points": 47,
+    "dateOfActivity": "2025-12-24"
+  },
+  {
+    "citizenId": "CZ0125",
+    "activity": "Used energy-saving mode on all devices",
+    "points": 25,
+    "dateOfActivity": "2025-12-25"
+  },
+  {
+    "citizenId": "CZ0126",
+    "activity": "Joined local river clean-up",
+    "points": 59,
+    "dateOfActivity": "2025-12-26"
+  },
+  {
+    "citizenId": "CZ0127",
+    "activity": "Made eco-friendly holiday decorations",
+    "points": 34,
+    "dateOfActivity": "2025-12-27"
+  },
+  {
+    "citizenId": "CZ0128",
+    "activity": "Used cloth gift wrapping instead of paper",
+    "points": 32,
+    "dateOfActivity": "2025-12-28"
+  },
+  {
+    "citizenId": "CZ0129",
+    "activity": "Reduced thermostat temperature by 2 degrees",
+    "points": 27,
+    "dateOfActivity": "2025-12-29"
+  },
+  {
+    "citizenId": "CZ0130",
+    "activity": "Planned zero-waste New Year party",
+    "points": 49,
+    "dateOfActivity": "2025-12-30"
+  }
+]
