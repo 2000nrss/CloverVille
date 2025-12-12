@@ -8,6 +8,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* stop horizontal overflow on small screens */
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -15,7 +21,7 @@ body {
   background: #f3f4f6;
   color: #111827;
   display: grid;
-  grid-template-rows: auto 1fr auto; /* header - main - footer */
+  grid-template-rows: auto 1fr auto; /* header, main, footer */
   min-height: 100vh;
 }
 
@@ -38,8 +44,7 @@ main {
 }
 
 .section-subtitle {
-  margin: 0;
-  margin-bottom: 1.8rem;
+  margin: 0 0 1.8rem;
   max-width: 540px;
   font-size: 0.95rem;
   color: #6b7280;
@@ -87,7 +92,8 @@ main {
   border-bottom: 2px solid transparent;
 }
 
-/* highlight the menu link for the page we are on */
+/* highlight current page link */
+
 .nav-links a.current-page {
   border-bottom-color: #fbbf24;
 }
@@ -111,15 +117,8 @@ main {
   height: 24px;
 }
 
-@media (max-width: 768px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
 /* =========================
-   Home page - hero 
+   Home page - hero
    ========================= */
 
 .hero {
@@ -127,7 +126,7 @@ main {
   margin-bottom: 3rem;
   border-radius: 16px;
   overflow: hidden;
-  display: grid; /* grid so image and content overlap */
+  display: grid; /* image and text overlap */
   place-items: center;
 }
 
@@ -139,8 +138,9 @@ main {
 }
 
 /* dark overlay on hero image */
+
 .hero::before {
-  content: ""; /*so we can use ::before without showing text*/
+  content: ""; /* so ::before exists but shows no text */
   grid-area: 1 / 1 / 2 / 2;
   width: 100%;
   height: 100%;
@@ -184,10 +184,12 @@ main {
 
 .hero-actions {
   margin-top: 1.6rem;
-  display: flex; /* flexbox for buttons */
+  display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
 }
+
+/* buttons */
 
 .btn {
   border: none;
@@ -225,7 +227,7 @@ main {
 }
 
 /* =========================
-   Home page – our story
+   Home page - our story
    ========================= */
 
 .our-story {
@@ -246,7 +248,7 @@ main {
 }
 
 /* =========================
-   Home page – activities
+   Home page - activities
    ========================= */
 
 .activities {
@@ -262,7 +264,7 @@ main {
 }
 
 .activities-card {
-  display: grid; /* grid for text and image side by side */
+  display: grid; /* text and image side by side */
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: center;
@@ -272,6 +274,8 @@ main {
   border: 1px solid #d1d5db;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
 }
+
+/* second card uses this class so image is on the left on desktop */
 
 .activities-card-image-left {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
@@ -310,59 +314,90 @@ main {
   object-fit: cover;
 }
 
-/* Responsiveness for home page */
+/* =========================
+   Responsive rules
+   ========================= */
 
+/* --- TABLET (768px) and below --- */
 @media (max-width: 768px) {
+  /* 1. Stack the footer content */
   .footer {
     flex-direction: column;
     text-align: center;
+    gap: 0.5rem;
   }
 
+  /* 2. Fix the Hero Image overflow (from previous fix) */
   .hero-img {
-    height: 260px;
+    height: 100%;
+    min-height: 260px;
   }
 
-  .hero-content {
-    padding: 1.4rem 1.6rem;
+  /* 3. Stack Activity Cards (Image on top of text) */
+  .activities-card {
+    grid-template-columns: 1fr;
+    text-align: left;
   }
 
-  .activities-card,
+  /* Reset the "image left" logic so it stacks consistently */
   .activities-card-image-left {
     grid-template-columns: 1fr;
   }
 
+  .activities-card-image {
+    margin-top: 1rem;
+    /* Move image to top visually if preferred, or keep at bottom */
+    order: -1;
+  }
+
+  /* 4. Stack the Points Page layout */
   .points-layout {
     grid-template-columns: 1fr;
   }
 }
 
-/* extra fixes only for very small screens */
-@media (max-width: 600px) {
+/* --- MOBILE (480px) and below - Covers 375px --- */
+@media (max-width: 480px) {
+  /* 1. Navbar: Allow wrapping so links don't break */
   .navbar {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 0.5rem 1rem 0.7rem;
+    height: auto; /* Remove fixed height */
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .nav-links ul {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    justify-content: flex-end;
+    gap: 0.8rem 1.2rem; /* Tighter spacing between links */
+    flex-wrap: wrap; /* Allow links to go to next line */
+    justify-content: center;
   }
 
   .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.85rem; /* Slightly smaller text for mobile */
   }
 
+  /* 2. Main Container: Gain more space by reducing padding */
+  main {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  /* 3. Hero: Resize text for small screens */
   .hero-content {
-    padding: 1.2rem 1.4rem;
+    padding: 1.5rem 1.2rem;
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem; /* Prevent "Cloverville" from being too wide */
   }
 
-  .hero-text {
+  /* 4. Grids: Ensure they don't get too narrow */
+  .rewards-grid,
+  .tasks-grid,
+  .devs-grid {
+    grid-template-columns: 1fr; /* Force single column on tiny screens */
+  }
+
+  .section-subtitle {
     font-size: 0.9rem;
   }
 }
@@ -381,12 +416,6 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   gap: 1.7rem;
-}
-
-@media (max-width: 768px) {
-  .points-layout {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* =========================
@@ -427,6 +456,7 @@ main {
 }
 
 /* hover effect */
+
 .reward-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 22px 46px rgba(15, 23, 42, 0.14);
@@ -441,8 +471,6 @@ main {
   color: #0f172a;
 }
 
-/* image */
-
 .reward-image {
   width: 100%;
   max-width: 220px;
@@ -451,8 +479,6 @@ main {
   object-fit: cover;
   border: 1px solid #e5e7eb;
 }
-
-/* points badge */
 
 .reward-points {
   margin: 0;
@@ -465,29 +491,27 @@ main {
   border: 1px solid #bbf7d0;
 }
 
-/* small status line under the points on each reward */
+/* status text under points */
+
 .reward-status-text {
   margin: 0;
   font-size: 0.8rem;
 }
 
-/* status color for rewards that already happened */
 .reward-status-done {
   color: #6b7280;
 }
 
-/* status color for the next reward */
 .reward-status-next {
   color: #0b6b3e;
 }
 
-/* card style when the reward is already done (grey look) */
 .reward-card-done {
   opacity: 0.85;
 }
 
 .reward-card-done::before {
-  background: #9ca3af; /* grey stripe on top */
+  background: #9ca3af;
 }
 
 .reward-card-done .reward-image {
@@ -498,13 +522,12 @@ main {
   color: #4b5563;
 }
 
-/* card style for the next reward (warm highlight) */
 .reward-card-next::before {
   background: linear-gradient(90deg, #f97316, #facc15);
 }
 
 /* =========================
-   Summary card & progress
+   Summary card and progress
    ========================= */
 
 .points-summary-card {
@@ -539,8 +562,6 @@ main {
   color: #4b5563;
 }
 
-/* progress bar */
-
 .progress-bar {
   position: relative;
   height: 14px;
@@ -566,6 +587,94 @@ main {
 }
 
 /* =========================
+   Green actions page
+   ========================= */
+
+.green-actions {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.actions-card {
+  margin-top: 0.5rem;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem 1.5rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.actions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.9rem;
+}
+
+.actions-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.actions-goal {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+.actions-points {
+  font-weight: 700;
+  color: #16a34a;
+  font-size: 0.95rem;
+}
+
+/* info line under the header */
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.info-block i {
+  color: #0b6b3e;
+  margin-top: 0.15rem;
+}
+
+/* table styling */
+
+.actions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.actions-table thead {
+  background: #e5f5eb;
+}
+
+.actions-table th,
+.actions-table td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.actions-table tbody tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+.actions-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* =========================
    Tasks page
    ========================= */
 
@@ -581,15 +690,13 @@ main {
   gap: 1.2rem;
 }
 
-/* Task cards */
-
 .task-card {
   background: #ffffff;
   border-radius: 14px;
   padding: 1.1rem 1.2rem;
   border: 1px solid #d1d5db;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-  display: flex; /* flexbox inside the card */
+  display: flex;
   align-items: flex-start;
   gap: 0.9rem;
 }
@@ -636,94 +743,6 @@ main {
   font-weight: 600;
   color: #065f46;
 }
-/* =========================
-   Green actions page
-   ========================= */
-
-.green-actions {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.actions-card {
-  margin-top: 0.5rem;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 1.6rem 1.8rem 1.5rem;
-  border: 1px solid #d1d5db;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-}
-
-.actions-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.9rem;
-}
-
-.actions-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.actions-goal {
-  margin: 0.25rem 0 0;
-  font-size: 0.82rem;
-  color: #6b7280;
-}
-
-.actions-points {
-  font-weight: 700;
-  color: #16a34a;
-  font-size: 0.95rem;
-}
-
-/* info line */
-
-.info-block {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-  color: #6b7280;
-}
-
-.info-block i {
-  color: #0b6b3e;
-  margin-top: 0.15rem;
-}
-
-/* table */
-
-.actions-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.actions-table thead {
-  background: #e5f5eb;
-}
-
-.actions-table th,
-.actions-table td {
-  padding: 0.6rem 0.9rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.actions-table tbody tr:nth-child(even) td {
-  /* selects every second/even row */
-  background: #f9fafb;
-}
-
-.actions-table td:last-child {
-  text-align: right;
-  font-weight: 600;
-  color: #16a34a;
-}
 
 /* =========================
    Developers page
@@ -736,7 +755,7 @@ main {
 
 .devs-grid {
   margin-top: 2rem;
-  display: grid; /* grid for layout */
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1.5rem;
 }
@@ -748,7 +767,7 @@ main {
   border: 1px solid #d1d5db;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
   text-align: center;
-  display: flex; /* flex inside each card */
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
