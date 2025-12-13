@@ -17,14 +17,20 @@
       <img src="images/logo.webp" alt="Cloverville logo" class="logo" />
     </a>
 
-    <nav class="nav-links">
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+      &#9776;
+    </button>
+
+    <nav class="nav-links" id="primary-nav">
       <ul>
         <!-- Active page is Home -->
         <li><a href="index.html">Home</a></li>
         <li><a href="green-actions.html">Green Actions</a></li>
         <li><a href="tasks.html">Tasks</a></li>
         <li><a href="points.html" class="current-page">Points</a></li>
-        <li><a href="our-developers.html">Our Developers</a></li>
+        <li>
+          <a href="our-developers.html">Our Developers</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -67,7 +73,8 @@
             <h2 class="reward-title">Wellness day</h2>
             <img src="images/wellness-day.png" alt="Sauna and wellness area" class="reward-image" />
             <p class="reward-points">1 500 points</p>
-            <p class="reward-status-text reward-status-next" id="wellness-unlocked"><!-- If it was unlocked or not yet --></p>
+            <p class="reward-status-text reward-status-next" id="wellness-unlocked">
+              <!-- If it was unlocked or not yet --></p>
           </article>
         </div>
 
@@ -102,6 +109,7 @@
     <p>© 2025 Cloverville. All rights reserved.</p>
   </footer>
   <script src="js/points.js"></script>
+  <script src="js/hamburger.js"></script>
 </body>
 
 </html>
