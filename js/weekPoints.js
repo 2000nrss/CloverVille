@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    document.getElementById("info-icon").addEventListener("click", () => {
+        document.getElementById("info-block").classList.toggle("is-collapsed");
+    });
+
     fetch('json/greenPoints.json')
         .then(response => response.json())
         .then(data => {
@@ -29,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const lastWeekInfo = document.querySelector(".actions-points");
-                lastWeekInfo.textContent = greenPointsLastWeek + ' points';
-            
+            lastWeekInfo.textContent = greenPointsLastWeek + ' points';
+
 
 
             const weekNumberElem = document.querySelector('.actions-title');

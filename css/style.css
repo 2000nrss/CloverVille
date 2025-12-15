@@ -687,6 +687,11 @@ main {
 .info-block i {
   color: #0b6b3e;
   margin-top: 0.15rem;
+  cursor: pointer;
+}
+
+.info-block.is-collapsed p {
+  display: none;
 }
 
 /* table styling */
